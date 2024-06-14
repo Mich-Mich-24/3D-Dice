@@ -1,0 +1,122 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+:root {
+    background: rgb(15, 13, 13);
+}
+
+.infinity-path {
+    position: relative;
+    width: 50vw;
+    height: 80vh;
+}
+
+.dice {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    font-size: 72px;
+    font-weight: bold;
+    font-family: "Zen Dots",
+    sans-serif;
+    transform: rotateX(30deg) rotateY(30deg) rotateZ(30deg);
+    animation: rotateDice 4s linear infinite,
+    moveInfinity 7s linear infinite;
+
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg,
+    rgb(129, 18, 18),
+    rgb(146, 101, 17),
+    rgb(78, 78, 29),
+    rgb(19, 65, 19),
+    rgb(62, 62, 77),
+    rgb(49, 27, 65),
+    rgb(80, 10, 80));
+    background-size: 400% 400%;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 30%;
+    box-shadow: 0 0 10px #ffffffcc,
+    0 0 10px #ffffff99,
+    0 0 50px #ffffff66;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rainbow 5s linear infinite;
+    transform: filter 0.3s ease;
+
+}
+
+.face::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff6;
+    border-radius: 30%;
+    box-shadow: 0 0 5px #ffffffcc,
+    0 0 10px #ffffff99,
+    0 0 20px #ffffff66;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.face1 {
+    transform: rotateY(0deg) translateZ(50px);
+}
+
+.face2 {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.face3 {
+    transform: rotateY(180deg) translateZ(50px);
+}
+.face4 {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+.face5 {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.face6 {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+@keyframes rotateDice {
+    from {  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+    to {  transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);}
+    
+}
+
+@keyframes moveInfinity {
+    0% { top: 50%; left: 0;}
+    25% { top: 0; left: 50%;}
+    50% { top: 50%; left: 80%;}
+    75% { top: 80%; left: 50%;}
+    100% { top: 50%; left: 0%;}
+}
+
+@keyframes rainbow{
+    0% {
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0;}
+    50% { opacity: 0;}
+}
